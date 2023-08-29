@@ -1294,7 +1294,7 @@ run_function local_update_docker_compose_file "$SCRIPT_PATH/../"
 #-----------------------------------------------------------------------
 # Start proxy
 #-----------------------------------------------------------------------
-run_function docker_compose_start "$SCRIPT_PATH/../"
+# run_function docker_compose_start "$SCRIPT_PATH/../"
 
 if [[ "$ERROR_DOCKER_COMPOSE_START" == true ]]; then
   echoerror "There was an error starting the service at '$SCRIPT_PATH/../'"
