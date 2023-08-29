@@ -31,8 +31,16 @@ We use submodule for [basescript](https://github.com/evertramos/basescript)
 ```bash
 cd proxy/bin && ./fresh-start.sh --yes -e your_email@domain --skip-docker-image-check
 ```
-
 Update the email above with your real e-mail address
+
+
+2.1 ⭐ Start the nginx-proxy, docker-gen, letsencrypt docker containers
+
+```bash
+cd proxy && docker compose up -d
+```
+- This is a fork specific change ☝️
+
 
 3. 🧪 Test the proxy
 
