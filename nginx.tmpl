@@ -311,7 +311,7 @@ server {
 	{{ if eq $proto "fastcgi" }}
 		index index.php;
 
-		root /{{ trim $vhost_root }};
+		root /wordpress-content/{{ trim $vhost_root }};
 
 		server_tokens off;
 		server_name_in_redirect off;
@@ -403,7 +403,7 @@ server {
 			include uwsgi_params;
 			uwsgi_pass {{ trim $proto }}://{{ trim $upstream_name }};
 			{{ else if eq $proto "fastcgi" }}
-			root   {{ trim $vhost_root }};
+			root /wordpress-content/{{ trim $vhost_root }};
 			include fastcgi_params;
 			fastcgi_pass {{ trim $upstream_name }};
 			{{ else if eq $proto "grpc" }}
