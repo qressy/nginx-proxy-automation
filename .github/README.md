@@ -21,7 +21,7 @@
 1. Clone this repository using the option **_--recurse-submodules_** ⚠️
 
 ```bash
-git clone --recurse-submodules https://github.com/evertramos/nginx-proxy-automation.git proxy 
+git clone --recurse-submodules https://github.com/qressy/nginx-proxy-automation.git proxy 
 ```
 
 We use submodule for [basescript](https://github.com/evertramos/basescript)
