@@ -34,11 +34,10 @@ cd proxy/bin && ./fresh-start.sh --yes -e your_email@domain --skip-docker-image-
 Update the email above with your real e-mail address
 
 
-2.1 ⭐ Start the nginx-proxy, docker-gen, letsencrypt docker containers
+2.1 ⭐ Start the nginx-proxy, docker-gen, letsencrypt(optional) docker containers (comment out letsencrypt container if not needed )
 
 ```bash
 cd proxy && docker compose up -d
-sudo docker compose up -d ( if not )
 ```
 - This is a fork specific change ☝️
 
@@ -54,6 +53,22 @@ or simply run:
 ```
 
 Use your own domain name when testing this proxy and make sure your DNS is correctly configured.
+
+## Trouble shoot
+
+- while running docker compose up ( for proxy container )
+```
+Error response from daemon: driver failed programming external connectivity on endpoint proxy-web-auto (2def268a2143a64bfd06be3e1952afd54b6e644afc8dff9c666394275287f389): failed to bind port 0.0.0.0:80/tcp: Error starting userland proxy: error while calling PortManager.AddPort(): cannot expose privileged port 80, you can add 'net.ipv4.ip_unprivileged_port_start=80' to /etc/sysctl.conf (currently 1024), or set CAP_NET_BIND_SERVICE on rootlesskit binary, or choose a larger port number (>= 1024): listen tcp4 0.0.0.0:80: bind: permission denied
+```
+
+Solution:
+```bash
+# add 'net.ipv4.ip_unprivileged_port_start=80' to /etc/sysctl.conf
+# to apply the change
+sudo sysctl -p
+# verify the change 
+sysctl net.ipv4.ip_unprivileged_port_start
+```
 
 ## Video Tutorial 🎥
 
