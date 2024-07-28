@@ -38,6 +38,7 @@ Update the email above with your real e-mail address
 
 ```bash
 cd proxy && docker compose up -d
+sudo docker compose up -d ( if not )
 ```
 - This is a fork specific change ☝️
 
